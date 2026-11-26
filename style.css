@@ -1,0 +1,188 @@
+/* =========================================================
+   Sierra Curtain – styles
+   To change colours, edit the values in :root below.
+   ========================================================= */
+:root {
+  --bg: #faf7f2;          /* warm off-white page background */
+  --bg-alt: #f1ebe1;      /* soft beige for alternate sections */
+  --card: #ffffff;
+  --ink: #26302a;         /* main text */
+  --muted: #5f6a62;       /* secondary text */
+  --brand: #2f3a33;       /* deep green-charcoal */
+  --accent: #b08a57;      /* warm brass */
+  --line: #e4ddd1;
+  --wa: #1fa855;          /* WhatsApp green */
+  --wa-dark: #178a45;
+  --radius: 14px;
+  --shadow: 0 6px 24px rgba(38, 48, 42, 0.08);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0 0 .5em;
+  color: var(--brand);
+}
+h1 { font-size: clamp(2rem, 8vw, 3.4rem); }
+h2 { font-size: clamp(1.6rem, 5.5vw, 2.3rem); }
+h3 { font-size: 1.25rem; }
+p  { margin: 0 0 1em; }
+
+.wrap { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+
+/* ---------- Top bar ---------- */
+.topbar {
+  position: sticky; top: 0; z-index: 20;
+  background: rgba(250, 247, 242, .94);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.topbar-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+.logo {
+  font-family: Georgia, serif; font-size: 1.3rem; font-weight: 700;
+  color: var(--brand); text-decoration: none; letter-spacing: .01em;
+}
+.logo span { color: var(--accent); }
+.topbar-link {
+  color: var(--wa-dark); font-weight: 600; text-decoration: none; font-size: .95rem;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5em;
+  padding: .8em 1.3em; border-radius: 999px;
+  font-weight: 600; font-size: 1rem; text-decoration: none;
+  transition: transform .15s ease, background-color .15s ease;
+  min-height: 48px; /* easy to tap on phones */
+}
+.btn:active { transform: scale(.98); }
+.btn-lg { font-size: 1.1rem; padding: 1em 1.6em; width: 100%; max-width: 360px; }
+.btn-primary { background: var(--wa); color: #fff; }
+.btn-primary:hover { background: var(--wa-dark); }
+.btn-wa { background: var(--wa); color: #fff; }
+.btn-wa:hover { background: var(--wa-dark); }
+.wa-icon { width: 22px; height: 22px; fill: currentColor; flex: none; }
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: 56px 0 64px;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at top, rgba(176, 138, 87, .16), transparent 65%),
+    var(--bg);
+}
+.eyebrow {
+  text-transform: uppercase; letter-spacing: .14em; font-size: .78rem;
+  color: var(--accent); font-weight: 700; margin-bottom: .8em;
+}
+.lead { font-size: 1.1rem; color: var(--muted); max-width: 34em; margin: 0 auto 1.8em; }
+.hero-note { font-size: .9rem; color: var(--muted); margin-top: 1em; }
+
+/* ---------- Sections ---------- */
+.section { padding: 56px 0; }
+.section-alt { background: var(--bg-alt); }
+.section h2 { text-align: center; }
+.section-sub { text-align: center; color: var(--muted); margin-bottom: 2em; }
+
+/* ---------- Image placeholders ---------- */
+.ph {
+  aspect-ratio: 4 / 3;
+  background:
+    repeating-linear-gradient(45deg, #ece4d7 0 12px, #e5dccd 12px 24px);
+  display: flex; align-items: center; justify-content: center;
+  color: #8a7b63; font-size: .9rem; font-weight: 600;
+  border: 2px dashed #cdbfa8;
+}
+.ph span { background: rgba(255,255,255,.75); padding: .3em .8em; border-radius: 6px; }
+/* Real photos dropped in place of a placeholder get the same shape */
+.card > img, .gallery > img {
+  width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block;
+}
+
+/* ---------- Service cards ---------- */
+.cards { display: grid; gap: 20px; grid-template-columns: 1fr; }
+.card {
+  background: var(--card); border-radius: var(--radius); overflow: hidden;
+  box-shadow: var(--shadow); border: 1px solid var(--line);
+  display: flex; flex-direction: column;
+}
+.card .ph { border-width: 0 0 2px 0; }
+.card-body { padding: 20px; display: flex; flex-direction: column; flex: 1; }
+.card-body p { color: var(--muted); }
+.card-body .btn { margin-top: auto; }
+.card-featured { border: 2px solid var(--accent); }
+.tag {
+  display: inline-block; align-self: flex-start;
+  background: var(--accent); color: #fff !important;
+  font-size: .75rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+  padding: .25em .7em; border-radius: 999px; margin-bottom: .7em;
+}
+
+/* ---------- How it works ---------- */
+.steps { list-style: none; padding: 0; margin: 2em auto 0; max-width: 640px; display: grid; gap: 16px; }
+.steps li {
+  display: flex; gap: 16px; align-items: flex-start;
+  background: var(--card); padding: 18px; border-radius: var(--radius); border: 1px solid var(--line);
+}
+.steps h3 { margin-bottom: .2em; }
+.steps p { margin: 0; color: var(--muted); }
+.num {
+  flex: none; width: 40px; height: 40px; border-radius: 50%;
+  background: var(--brand); color: #fff; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ---------- Gallery ---------- */
+.gallery { display: grid; gap: 10px; grid-template-columns: repeat(2, 1fr); }
+.gallery .ph, .gallery > img { border-radius: 10px; }
+.gallery .ph { font-size: .8rem; }
+
+/* ---------- Footer ---------- */
+.footer {
+  background: var(--brand); color: #e9e4da; text-align: center;
+  padding: 56px 0 110px; /* extra bottom space so the floating button never covers text */
+}
+.footer h2 { color: #fff; }
+.footer .areas { margin-top: 1.8em; font-size: .95rem; }
+.footer .copy { font-size: .85rem; opacity: .7; margin: 0; }
+
+/* ---------- Floating WhatsApp button ---------- */
+.wa-float {
+  position: fixed; right: 16px; bottom: 16px; z-index: 50;
+  width: 60px; height: 60px; border-radius: 50%;
+  background: var(--wa); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+  transition: transform .15s ease;
+}
+.wa-float:hover { transform: scale(1.06); }
+.wa-float svg { width: 32px; height: 32px; fill: currentColor; }
+
+/* ---------- Larger screens ---------- */
+@media (min-width: 640px) {
+  .cards { grid-template-columns: repeat(2, 1fr); }
+  .gallery { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .btn-lg { width: auto; }
+}
+@media (min-width: 960px) {
+  .cards { grid-template-columns: repeat(4, 1fr); }
+  .hero { padding: 96px 0 104px; }
+  .section { padding: 80px 0; }
+  .steps { max-width: none; grid-template-columns: repeat(4, 1fr); }
+  .steps li { flex-direction: column; }
+}
